@@ -93,6 +93,14 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 
 /*****CONTACT FORM*****/
 
-.contact-form-input input {
+#wpforms-420{
 	color: red;
+}
+
+.wpforms-field .wpforms-field-textarea .text-area-contact{
+	width: 383px;
+}
+
+#wpforms-submit-420{
+	color: green;
 }
