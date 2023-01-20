@@ -91,16 +91,39 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	width: 100%;
 }
 
-/*****CONTACT FORM*****/
-
-#wpforms-420{
-	color: red;
+.footer-pink-background {
+	background-color: #ECE2DA;
 }
 
-.wpforms-field .wpforms-field-textarea .text-area-contact{
-	width: 383px;
+/*****ORDER WIDGET*****/
+
+.product {
+    max-width: 25%;
 }
 
-#wpforms-submit-420{
-	color: green;
+#products {
+    display: flex;
+    gap: 20px;
 }
+
+#informations-client {
+    margin-top: 50px;
+    display: flex;
+    gap: 50px;
+}
+
+#informations-client > div {
+    width: 50%;
+}
+
+#order-form button {
+    margin: 50px auto;
+    display: block;
+}
+
+#order-form input[type=number]::-webkit-inner-spin-button {
+    opacity: 0;
+    display: none;
+}
+
+/*****FLAVOURS WIDGET*****/
