@@ -117,7 +117,7 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 }
 
 #order-form button {
-    margin: 50px auto;
+    margin: 0;
     display: block;
 }
 
@@ -125,5 +125,16 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     opacity: 0;
     display: none;
 }
-
-/*****FLAVOURS WIDGET*****/
+.order-title{
+	font-family: Syne;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 36px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #FFFFFF;
+	margin-bottom: 30px;
+}
+body{
+	color: red;
+}

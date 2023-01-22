@@ -15,17 +15,39 @@ class flavours_widget extends WP_Widget {
         $posts = get_posts([
 			'post_type' 	 => 'flavour',
 			'posts_per_page' => -1
-		]);
-        foreach ( $posts as $post ) {
-        ?>
-            <div class="product">
-                <?php if(has_post_thumbnail($post->ID)) : ?>
-                    <?php echo get_the_post_thumbnail($post->ID); ?>
-                <?php endif; ?>
-                <p><?php echo $post->post_title ?></p>
-            </div>
-            <?php
-        }
+		]); 
+		?>
+		<div class="flavours-container">
+			<div class="flavours">
+			<?php foreach ($posts as $post) { ?>
+				<div class="flavour-item">
+					<?php if(has_post_thumbnail($post->ID)) : ?>
+						<div class="flavour-background" style="background-image:url(<?php echo get_the_post_thumbnail_url($post->ID); ?>)">
+							<?php
+							$title = $post->post_title;
+							$length = strlen($title);
+							if($length > 8) {
+								if($length % 2 == 0){
+									$half = $length / 2;
+									$first_string = substr($title, 0, $half * -1);
+									$second_string = substr($title, $half);
+    							} else {
+									$first_part = floor($length / 2);
+									$second_part = ceil($length / 2);
+									$first_string = substr($title, 0, $second_part * -1);
+									$second_string = substr($title, $first_part);
+								}
+								$title = $first_string . '<br>' . $second_string;
+							}
+							?>
+							<p class="flavour-title"><?php echo $title; ?></p>
+						</div>
+					<?php endif; ?>
+				</div>
+			<?php } ?>
+			</div>
+		</div>
+		<?php
 	}
 
 }

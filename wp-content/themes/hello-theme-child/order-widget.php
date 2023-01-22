@@ -15,7 +15,7 @@ class planty_order_widget extends WP_Widget
 		// widget ID
 			'planty_order_widget',
 			// widget name
-			__('Widget de commande', ' planty_widget_domain'),
+			__('Commande', ' planty_widget_domain'),
 			// widget description
 			array('description' => __('Formulaire de commande pour le site Planty', 'planty_widget_domain'),)
 		);
@@ -24,6 +24,7 @@ class planty_order_widget extends WP_Widget
 	/** FRONT FINAL */
 	public function widget($args, $instance)
 	{
+
 		$posts = get_posts([
 			'post_type' => 'flavour',
 			'posts_per_page' => -1
@@ -33,47 +34,56 @@ class planty_order_widget extends WP_Widget
             <form action="#" method="POST" id="order-form">
 				<?php wp_nonce_field('order', 'order-verif', true, true) ?>
                 <input type="text" name="order-mail" value="<?php echo $instance['mail'] ?>" hidden="hidden"/>
-                <h3>Votre commande</h3>
+                <h3 class="order-title">Votre commande</h3>
                 <div id="products">
 	                <?php
                         foreach ($posts as $post) {
                             ?>
                             <div class="product">
                                 <?php echo get_the_post_thumbnail($post->ID); ?>
-                                <div>
-									<input name="<?php echo $post->post_name; ?>" type="text" readonly value="0">
-									<div>
-										<button type="button" onclick="inc('<?php echo $post->post_name; ?>')">+</button>
-										<button type="button" onclick="dec('<?php echo $post->post_name; ?>')">-</button>
+                                <div class="quantities">
+									<div class="inc-dec-number">
+										<div class="number">
+											<input name="<?php echo $post->post_name; ?>" type="text" readonly value="0">
+										</div>
+										<div class="inc-dec">
+											<button type="button" onclick="inc('<?php echo $post->post_name; ?>')">+</button>
+											<button type="button" onclick="dec('<?php echo $post->post_name; ?>')">-</button>
+										</div>
 									</div>
-									<button type="button">OK</button>
+									<div class="ok-number">
+										<button type="button" class="ok-number-button">OK</button>
+									</div>
 								</div>
                             </div>
                             <?php
                         }
 	                ?>
                 </div>
+				<hr>
                 <div id="informations-client">
-                    <div>
-                        <h3>Vos informations</h3>
-                        <label for="nom">Nom</label>
-                        <input type="text" name="nom">
-                        <label for="prenom">Prénom</label>
-                        <input type="text" name="prenom">
-                        <label for="email">E-mail</label>
-                        <input type="text" name="email">
+                    <div id="informations">
+                        <h3 class="order-title">Vos informations</h3>
+                        <label for="nom" class="order-label">Nom</label>
+                        <input type="text" name="nom" class="order-input">
+                        <label for="prenom" class="order-label">Prénom</label>
+                        <input type="text" name="prenom" class="order-input">
+                        <label for="email" class="order-label">E-mail</label>
+                        <input type="text" name="email" class="order-input">
                     </div>
-                    <div>
-                        <h3>Livraison</h3>
-                        <label for="adresse">Adresse de livraison</label>
-                        <input type="text" name="adresse">
-                        <label for="code-postal">Code postal</label>
-                        <input type="text" name="code-postal">
-                        <label for="ville">Ville</label>
-                        <input type="text" name="ville">
+                    <div id="livraison">
+                        <h3 class="order-title">Livraison</h3>
+                        <label for="adresse" class="order-label">Adresse de livraison</label>
+                        <input type="text" name="adresse" class="order-input">
+                        <label for="code-postal" class="order-label">Code postal</label>
+                        <input type="text" name="code-postal" class="order-input">
+                        <label for="ville" class="order-label">Ville</label>
+                        <input type="text" name="ville" class="order-input">
                     </div>
                 </div>
-                <button type="submit" name="send-order">Commander</button>
+				<div class="submit-container">
+					<button type="submit" name="send-order" id="send-order">Commander</button>
+				</div>
             </form>
         <?php
 	}
@@ -147,6 +157,7 @@ function traitement_formulaire_order() {
 			$headers = array('Content-Type: text/html; charset=UTF-8', 'From: Planty <diakho.camara@opsone.net>');
 
 			wp_mail($to, $subject, $message, $headers);
+			
 		}
 	}
 }
