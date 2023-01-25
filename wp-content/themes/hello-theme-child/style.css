@@ -70,35 +70,10 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	font-weight: 700;
 }
 
-/*****FOOTER*****/
-
-.site-footer .footer-inner {
-	margin: 0;
-	padding: 30px 0 0;
-	max-width: 100%;
-}
-
-.site-footer a {
-	font-family: 'Syne', sans-serif;
-	font-weight: 400;
-	font-size: 16px;
-	text-align: center;
-	margin: 20px;
-	color: #000000;
-}
-
-.footer-inner img {
-	width: 100%;
-}
-
-.footer-pink-background {
-	background-color: #ECE2DA;
-}
-
 /*****ORDER WIDGET*****/
 
 .product {
-    max-width: 25%;
+	max-width: calc(25% - 20px);
 }
 
 #products {
@@ -109,7 +84,6 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 #informations-client {
     margin-top: 50px;
     display: flex;
-    gap: 50px;
 }
 
 #informations-client > div {
@@ -125,6 +99,19 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
     opacity: 0;
     display: none;
 }
+
+.success-container {
+	background-color: #E0FFC7;
+	border: solid 1 px #B4D39B;
+	margin-bottom: 30px;
+}
+
+.success-msg{
+	color: #363636;
+	text-align: center;
+	padding: 15px;
+}
+
 .order-title{
 	font-family: Syne;
 	font-size: 30px;
@@ -134,7 +121,259 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	text-align: left;
 	color: #FFFFFF;
 	margin-bottom: 30px;
+	margin-top: 0;
 }
-body{
-	color: red;
+
+.quantities {
+	display: flex;
+	gap: 15px;
+	margin-top: 15px;
+	flex-wrap: nowrap;
+}
+
+.inc-dec-number{
+	display: flex;
+	width: calc(45% - 7px);
+}
+
+.inc-dec{
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.inc-dec button{
+	height: 100%;
+	padding: 0;
+	background: #DC9F96;
+	color: #FFFFFF;
+	font-family: Syne;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+	margin: 0;
+	border-radius: 0 5px 5px 0;
+	width: 100%;
+}
+
+.inc-dec button:first-child{
+	border-bottom: 1px solid #FFFFFF;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+}
+
+.inc-dec button:last-child {
+	border-top: 1px solid #FFFFFF;
+	border-bottom: none;
+	border-right: none;
+	border-left: none;
+}
+
+.inc-dec button:hover{
+	background: #DC9F96;
+}
+
+#order-form button{
+	margin: 0;
+}
+
+.number input {
+	height: 100%;
+	border: none;
+	margin: 0;
+	text-align: center;
+	border-radius: 5px 0 0 5px;
+	padding: 0;
+}
+
+.ok-number {
+	width: calc(55% - 7px);
+}
+
+.ok-number-button {
+	height: 100%;
+	background-color: #E0B9B4;
+	border: none;
+	color: #FFFFFF;
+	width: 100%;
+}
+
+.ok-number-button:hover {
+	background-color: #C02E44 !important;
+}
+
+#products{
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.order-label{
+	font-family: Syne;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #FFFFFF;
+	margin-bottom: 13px;
+}
+
+.order-input{
+	border: none !important;
+	border-radius: 7px !important;
+	margin-bottom: 30px;
+}
+
+#informations {
+	padding-right: 44px;
+	border-right: solid 1px #FFFFFF;
+}
+
+#livraison {
+	padding-left: 44px;
+}
+
+.order-input:last-child {
+	margin-bottom: 0px;
+}
+
+.submit-container{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 93px;
+	margin-top: 44px;
+}
+
+#send-order{
+	background-color: #E0B9B4;
+	border: none;
+	color: #FFFFFF;
+	font-family: Syne;
+	font-size: 15px;
+	font-weight: 400;
+	line-height: 37px;
+	letter-spacing: 0em;
+	text-align: center;
+	padding: 9px 55px;
+	border-radius: 5px;
+}
+
+#send-order:hover{
+	background-color: #C02E44 !important;
+}
+
+/****CONTACT FORM****/
+
+.contact-form-input label{
+	color: #000000;
+	font-weight: 400 !important;
+	font-family: 'Syne', sans-serif !important;
+	font-size: 20px !important;
+	line-height: 24px !important;
+	margin-bottom: 13px !important;
+}
+
+.contact-form-input input, .contact-form-input textarea{
+	border-style: none !important;
+	border-radius: 7px !important;
+}
+
+.contact-form-input input{
+	height: 71px !important;
+}
+
+.contact-form-input textarea {
+	resize: none;
+	height: 237px !important;
+}
+
+.contact-form-submit{
+	color: #FFFFFF !important;
+	background-color: #E0B9B4 !important;
+	border-radius: 5px !important;
+	border-style: none !important;
+	padding: 9px 73px !important;
+}
+
+.contact-form-submit:hover , .home-order-button a:hover{
+	background-color: #C02E44 !important;
+}
+
+.wpforms-submit-container {
+	display: flex;
+  	justify-content: center;
+}
+
+/****FOOTER****/
+
+.footer-pink-background {
+	background-color: #ECE2DA;
+}
+
+.site-footer {
+	padding: 0;
+}
+
+.site-footer .footer-inner {
+	margin: 0;
+	max-width: 100%;
+}
+
+.site-footer a {
+	font-family: 'Syne', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	text-align: center;
+	margin: 20px 20px;
+	color: #000000;
+}
+
+.site-footer p {
+	margin: 0 !important;
+}
+
+.footer-inner img {
+	width: 100%;
+}
+
+/*****FLAVOURS WIDGET*****/
+
+/*.flavours-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}*/
+
+.flavours {
+	display: flex;
+	gap: 30px;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.flavour-background {
+	height: 263px;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+	word-wrap: break-word;
+	background-size: cover;
+}
+
+.flavour-title {
+	padding: 15px;
+	width: 393px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-family: Syne;
+	font-size: 48px;
+	font-weight: 800;
+	line-height: 58px;
+	letter-spacing: 0em;
+	text-align: center;
+	margin: 0;
 }

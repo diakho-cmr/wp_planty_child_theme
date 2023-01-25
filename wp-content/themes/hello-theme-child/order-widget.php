@@ -29,8 +29,12 @@ class planty_order_widget extends WP_Widget
 			'post_type' => 'flavour',
 			'posts_per_page' => -1
 		]);
-
+		if(isset($GLOBALS['success']) && $GLOBALS['success'] == true) { 
 		?>
+		<div class="success-container">
+			<p class="success-msg">Nous vous remercions pour votre commande ! Un courriel de confirmation vous a été envoyé.</p>
+		</div>
+		 <?php } ?>
             <form action="#" method="POST" id="order-form">
 				<?php wp_nonce_field('order', 'order-verif', true, true) ?>
                 <input type="text" name="order-mail" value="<?php echo $instance['mail'] ?>" hidden="hidden"/>
@@ -47,8 +51,8 @@ class planty_order_widget extends WP_Widget
 											<input name="<?php echo $post->post_name; ?>" type="text" readonly value="0">
 										</div>
 										<div class="inc-dec">
-											<button type="button" onclick="inc('<?php echo $post->post_name; ?>')">+</button>
-											<button type="button" onclick="dec('<?php echo $post->post_name; ?>')">-</button>
+											<button type="button" id="top-button" onclick="inc('<?php echo $post->post_name; ?>')">+</button>
+											<button type="button" id="bottom-button" onclick="dec('<?php echo $post->post_name; ?>')">-</button>
 										</div>
 									</div>
 									<div class="ok-number">
@@ -114,6 +118,8 @@ class planty_order_widget extends WP_Widget
 }
 
 function traitement_formulaire_order() {
+	$GLOBALS['success'] = false;
+	$success = false;
 	if (isset($_POST['send-order']) && isset($_POST['order-verif']))  {
 		if (wp_verify_nonce($_POST['order-verif'], 'order')) {
 
@@ -156,8 +162,7 @@ function traitement_formulaire_order() {
 			$subject = 'Commande Planty';
 			$headers = array('Content-Type: text/html; charset=UTF-8', 'From: Planty <diakho.camara@opsone.net>');
 
-			wp_mail($to, $subject, $message, $headers);
-			
+			$GLOBALS['success'] = wp_mail($to, $subject, $message, $headers);
 		}
 	}
 }
