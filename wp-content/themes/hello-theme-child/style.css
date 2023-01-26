@@ -377,3 +377,43 @@ Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, fe
 	text-align: center;
 	margin: 0;
 }
+
+/****** MEDIA QUERIES ******/
+
+/*order-widget*/
+
+@media screen and (max-width: 450px) {
+	/*order-widget*/
+	.quantities {
+		flex-wrap: nowrap;
+	}
+	.product {
+		max-width: 100%;
+	}
+	#products {
+		flex-wrap: wrap;
+	}
+	.inc-dec-number {
+		flex-wrap: nowrap;
+	}
+	#informations-client {
+		flex-wrap: wrap;
+	}
+	#informations-client > div{
+		width: 100%;
+	}
+	#informations{
+		border: none;
+		padding: 0;
+		margin-bottom: 30px;
+	}
+	#livraison{
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 820px) {
+	.menu-principal-container{
+		height: 100%;
+	}
+}
