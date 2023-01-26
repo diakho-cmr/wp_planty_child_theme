@@ -24,26 +24,6 @@ function planty_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'planty_scripts' );
 
-/*
-function custom_logo_setup() {
-	$args = [
-		'height'               => 19,
-		'width'                => 192,
-		'flex-height'          => true,
-		'flex-width'           => true,
-        'header-text'          => array( 'site-title', 'site-description' ),
-		'unlink-homepage-logo' => true, 
-	];
-	add_theme_support( 'custom-logo', $args );
-}
-add_action( 'after_setup_theme', 'custom_logo_setup' );
-*/
-
-
-/*if(is_user_logged_in()) :?>
-	<a href="<?php echo admin_url(); ?>">Admin</a>
-<?php endif;*/
-
 require_once('order-widget.php');
 require_once('flavour-type.php');
 require_once('flavours-widget.php');
